@@ -5,6 +5,24 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 200rpx 0;
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 } 
+.br {
+  margin: 10px 0;
+}
+
+.btn {
+  background: black;
+  color: #fff;
+  margin-top: 20rpx;
+}
+.page_box {
+  width: 100%;
+  height: 100%;
+  border: 1px solid red;
+  background: pink;
+  text-align: center;
+  font-size: 40rpx;
+}

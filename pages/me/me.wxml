@@ -1,0 +1,13 @@
+<view class="container">
+  <text>{{ text }}</text>
+  <button class="btn" bindtap="hello">使用公共方法1</button>
+  <text class="br">-----引入页面模板-----</text>
+  <import src="../component/text/text.wxml" />
+  <template is="text" data="{{ ...datas }}"></template>
+  <text class="br">-----条件判断-----</text>
+  <view wx:for="{{list}}" wx:key="item">
+    <text wx:if="{{ item.num === 1}}">num === 1: {{ item.num }}</text>
+    <text wx:elif="{{ item.num === 2}}">num === 2: {{ item.num }}</text>
+    <text wx:if="{{ item.num > 2}}">num > 2: {{ item.num }}</text>
+  </view>
+</view>

@@ -1,0 +1,10 @@
+/* pages/text/text.wxss */
+/* @import "../../../app.wxss"; */
+.page_box {
+  width: 100%;
+  height: 100%;
+  border: 1px solid red;
+  background: pink;
+  text-align: center;
+  font-size: 40rpx;
+}

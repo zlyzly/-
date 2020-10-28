@@ -1,0 +1,8 @@
+  // 标题栏window在app.json文件里面，通过window对象里面的属性进行设置
+  //设置导航栏
+  导航栏TabBar
+  如果我们的小程序是一个多 tab 应用（客户端窗口的底部或顶部有 tab 栏可以切换页面），那么我们可以通过 tabBar 配置项指定 tab 栏的表现，以及 tab 切换时显示的对应页面。
+
+  Tip： 通过页面跳转（wx.navigateTo）或者页面重定向（wx.redirectTo）所到达的页面，即使它是定义在 tabBar 配置中的页面，也不会显示底部的 tab 栏。
+  
+  tabBar 是一个数组，只能配置最少2个、最多5个 tab，tab 按数组的顺序排序。

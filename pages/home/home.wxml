@@ -1,0 +1,18 @@
+<view class="container">
+  <text>{{ text }}--------{{ array[0].name }}</text>
+  <text wx:for="{{array}}">{{ item.name }}</text>
+  <button class="btn" bindtap="viewTap">修改变量的值</button>
+  <text class="br">---------全局变量----------</text>
+  <text>全局变量情况一info:{{ info }}</text>
+  <button bindtap="getInfo">点击获取全局变量</button>
+  <text class="br">---------跳转页面----------</text>
+  <button class="btn" bindtap="navget">跳转页面</button>
+  <button class="btn" bindtap="redirectTo">跳转页面-重定向</button>
+  <button class="btn" bindtap="hello">使用公共方法</button>
+</view>
+<!--1.在组件内，所有属性都是用{{}}包括 包括写在属性条件后的。使用属性wx:for=”{{ 数组 }}” ，数组当前项的变量名默认为item（变量需要使用双花括号）下标默认为index 如果要修改可以设置wx:for-item="list" wx:for-index="i" 就可以使用i / list-->
+<!--2.在组件内使用全局变量
+ 在app.js的globalData对象中设置全局属性 indo="你好"
+情况一：在非app.js文件的其他js文件中获取，过getApp()获取全局的实例，就可以获取到全局对象内的资源。
+情况二：在当前app.js文件获取，在当前文件中获取的话，只需要使用this代表当前对象来获取就可以了
+-->
