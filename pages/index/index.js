@@ -4,10 +4,12 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    nbFrontColor: '#000000',
+    nbBackgroundColor: '#ffffff',
+    animationData: {}
   },
   //事件处理函数
   bindViewTap: function() {
@@ -15,7 +17,37 @@ Page({
       url: '../logs/logs'
     })
   },
+  getLocation: function() {
+    wx.getLocation({
+      type: 'wgs84',
+      success (res) {
+        const latitude = res.latitude
+        const longitude = res.longitude
+        const speed = res.speed
+        const accuracy = res.accuracy
+        console.log(res)
+      }
+    })
+   // wx.getLocation({
+    //   type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+    //   success (res) {
+    //     const latitude = res.latitude
+    //     const longitude = res.longitude
+    //     wx.openLocation({
+    //       latitude,
+    //       longitude,
+    //       scale: 18
+    //     })
+    //   }
+    // })
+  },
   onLoad: function () {
+    this.setData({
+      nbTitle: '新标题',
+      nbLoading: false,
+      nbFrontColor: '#ffffff',
+      nbBackgroundColor: '#000000',
+    })
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -43,12 +75,84 @@ Page({
       })
     }
   },
+  onReady:function () {
+  },
+  onShow:function () {
+    wx.setTabBarBadge({
+      index: 1,
+      text: '10'
+    })
+    var animation = wx.createAnimation({
+      duration: 1000,
+      timingFunction: 'ease',
+    })
+
+    this.animation = animation
+
+    animation.scale(2,2).rotate(45).step()
+
+    this.setData({
+      animationData:animation.export()
+    })
+
+    setTimeout(function() {
+      animation.translate(30).step()
+      this.setData({
+        animationData:animation.export()
+      })
+    }.bind(this), 1000)
+  },
   getUserInfo: function(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
+    })
+  },
+  openModal: function() {
+    wx.showModal({
+      title: '提示',
+      content: '这是一个模态弹窗',
+      success (res) {
+        console.log(res)
+        if (res.confirm) {
+          console.log('用户点击确定')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
+  showLoading:function () {
+    wx.showLoading({
+      title: '加载中。。。',
+    })
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 2000)
+  },
+  rotateAndScale: function () {
+    // 旋转同时放大
+    this.animation.rotate(45).scale(2, 2).step()
+    this.setData({
+      animationData: this.animation.export()
+    })
+  },
+  rotateThenScale: function () {
+    // 先旋转后放大
+    this.animation.rotate(45).step()
+    this.animation.scale(2, 2).step()
+    this.setData({
+      animationData: this.animation.export()
+    })
+  },
+  rotateAndScaleThenTranslate: function () {
+    // 先旋转同时放大，然后平移
+    this.animation.rotate(45).scale(2, 2).step()
+    this.animation.translate(100, 100).step({ duration: 1000 })
+    this.setData({
+      animationData: this.animation.export()
     })
   }
 })

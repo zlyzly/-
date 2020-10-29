@@ -1,0 +1,10 @@
+<view class="wrapper">
+  <slot name="before"></slot>
+  <text>这里是{{text}}组件的内部细节</text>
+  <view class="tabss">
+    <view class="tabs-item">
+      <text wx:for="{{list}}" wx:key="item" class="{{ active === index? 'active': '' }}" data-index="{{index}}" bindtap="changeTabs">{{item}}</text>
+    </view>
+  </view>
+  <slot name="after"></slot>
+</view>

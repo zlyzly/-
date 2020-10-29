@@ -34,12 +34,13 @@
     "useCompilerModule": false,
     "userConfirmedUseCompilerModuleSwitch": false,
     "packNpmManually": false,
-    "packNpmRelationList": []
+    "packNpmRelationList": [],
+    "minifyWXSS": true
   },
   "compileType": "miniprogram",
   "libVersion": "2.11.2",
   "appid": "wxcfe7bdff9ce7daed",
-  "projectname": "weixin",
+  "projectname": "miniprogram-demo",
   "debugOptions": {
     "hidedInDevtools": []
   },
