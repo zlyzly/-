@@ -14,6 +14,7 @@
   <text class="br">---------跳转页面----------</text>
   <button class="btn" bindtap="navget">跳转到登录页面</button>
   <button class="btn" bindtap="redirectTo">跳转页面-重定向</button>
+  <button class="btn" bindtap="scrollPage">上拉加载下拉刷新</button>
   <button class="btn" bindtap="hello">使用公共方法</button>
   <!--以下为toast显示的内容-->
   <view style="{{isShowToast?'position:fixed;':''}}">

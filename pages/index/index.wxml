@@ -22,6 +22,10 @@
     <button class="btn" bindtap="openModal">打开模态弹窗</button>
     <button class="btn" bindtap="showLoading">loading</button>
     <view animation="{{animationData}}" style="background:pink;height:100rpx;width:100rpx"></view>
-    
+  </view>
+  <view>
+    <view wx:for="{{list}}" wx:key="item">
+      <text>{{item.text}}</text>
+    </view>
   </view>
 </view>

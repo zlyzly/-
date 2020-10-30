@@ -4,30 +4,31 @@ Component({
   },
   behaviors: [],
   properties: {
-    myProperty: { // 属性名
-      type: String,
-      value: ''
-    },
-    myProperty2: String // 简化的定义方式
   },
-  
   data: {
     text: 'tabs',
-    list: ['AAAAA', 'BBBBB', 'CCCCC', 'DDDDD','EEEEE', 'FFFFF', 'GGGGG'],
+    list: ['AAAAA', 'BBBBB'],
+    firstList: ["LXT", "LXT", "LXT", "LXT", "LXT", "LXT"],
+    secondList: ["GFF", "GFF", "GFF", "GFF", "GFF", "GFF"],
     active: 0
   }, // 私有数据，可用于模板渲染
   methods: {
     changeTabs: function(e) {
       console.log(e)
       this.setData({
-        active: e.target.dataset.index
+        active: e.currentTarget.dataset.idx
       })
-      console.log(this.data.active)
     },
-    onMyButtonTap: function(){
-      this.setData({
-        // 更新属性和数据的方法与更新页面数据的方法类似
-      })
+     //swiper切换时会调用
+    pagechange: function (e) {
+      console.log(e)
+      if ("touch" === e.detail.source) {
+        let currentPageIndex = this.data.active
+        currentPageIndex = (currentPageIndex + 1) % 2
+        this.setData({
+          active: currentPageIndex
+        })
+      }
     },
     // 内部方法建议以下划线开头
     _myPrivateMethod: function(){

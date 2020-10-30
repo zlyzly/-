@@ -1,4 +1,5 @@
 //index.js
+var util = require('../../utils/util.js')
 //获取应用实例
 const app = getApp()
 
@@ -9,7 +10,11 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     nbFrontColor: '#000000',
     nbBackgroundColor: '#ffffff',
-    animationData: {}
+    animationData: {},
+    pageNum: 1,       // 设置加载的第几次，默认是第一次
+    isFirstLoad: true,   // 用于判断List数组是不是空数组，默认true，空的数组
+    list: [],
+    hasMore: false,    // “加载更多”
   },
   //事件处理函数
   bindViewTap: function() {
@@ -76,6 +81,7 @@ Page({
     }
   },
   onReady:function () {
+    wx.startPullDownRefresh()
   },
   onShow:function () {
     wx.setTabBarBadge({

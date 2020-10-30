@@ -167,6 +167,9 @@ Page({
       imageUrl: '../../image/login.jpg'
     }
   },
+  scrollPage:function() {
+    wx.navigateTo({ url: '../data/data' })
+  },
   onShow: function () {
     this.setData({
       info: app.globalData.info

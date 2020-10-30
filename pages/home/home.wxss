@@ -3,7 +3,7 @@ page {
 }
 /*按钮*/
 .btn {
-  /* font-size: 30rpx; */
+  font-size: 35rpx;
   /* padding: 30rpx; */
   /* width: 100rpx; */
   margin: 20rpx;

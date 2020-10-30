@@ -14,9 +14,6 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
-module.exports = {
-  formatTime: formatTime
-}
 function getRecommend(callback) {
    const data = {
      silder: [
@@ -24,29 +21,24 @@ function getRecommend(callback) {
        {url: 'https://cdn-image.onemicroworld.com/EE1B9F25-59E3-3737-1531-F99061C08D2A?UCloudPublicKey=qgchM9CFzaKL9XWizIjY4EXmtmtDqPoFCr69qE5P&Signature=JOyW3fglkOYeBGqC%2BPA741%2FZC%2Bs%3D&iopcmd=thumbnail&type=8&width=900&height=1000'},
      ]
    }
-  // wx.request({
-  //   url: 'https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg',
-  //   data: {
-  //     g_tk: 5381,
-  //     uin: 0,
-  //     format: 'json',
-  //     inCharset: 'utf-8',
-  //     outCharset: 'utf-8',
-  //     notice: 0,
-  //     platform: 'h5',
-  //     needNewCode: 1,
-  //     _: Date.now()
-  //   },
-  //   method: 'GET',
-  //   header: {'content-Type': 'application/json'},
-  //   success: function(res){
-  //     if(res.statusCode == 200){
-      callback(data.silder);
-  //     }
-  //   }
-  // })
+  callback(data.silder);
 }
- 
+
+// 下拉加载数据
+function loadData(callback) {
+  let res = {}
+  const list = []
+  for (let index = 0; index < 20; index++) {
+    list.push({title: `第${index + 1}条数据`})
+    res = {
+      list: list,
+      allPage: 10
+    }
+  }
+  callback(res)
+}
 module.exports = {
-  getRecommend: getRecommend
+  formatTime: formatTime,
+  getRecommend: getRecommend,
+  loadData: loadData
 }
