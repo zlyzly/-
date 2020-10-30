@@ -34,19 +34,19 @@ Page({
      var self = this;
     //  该方法绑定了页面滑动到底部的事件
     console.log('loadMore', self.data.currentPage, self.data.allPages)
-    if (self.data.currentPage == self.data.allPages){
-      self.setData({
-        loadMoreData: '已经到顶',
-        hideBottom: false
-      })
-      return;
-    } else {
-      self.setData({
-        loadMoreData: '上拉加载更多...',
-        hideBottom: true,
-        currentPage: self.data.currentPage++
-      })
-    }
+    // if (self.data.currentPage == self.data.allPages){
+    //   self.setData({
+    //     loadMoreData: '已经到顶',
+    //     hideBottom: false
+    //   })
+    //   return;
+    // } else {
+    self.setData({
+      loadMoreData: '上拉加载更多...',
+      hideBottom: true
+      // currentPage: self.data.currentPage++
+    })
+    // }
     setTimeout(function(){
       console.log('上拉加载更多');
       self.setData({
