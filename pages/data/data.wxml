@@ -4,9 +4,9 @@
     <view>下拉刷新中……</view>
     <view>{{refreshTime}}</view>
   </view>
-  <scroll-view class="list" style="height: 1208rpx" scroll-y="true" bindscrolltoupper="refresh" bindscrolltolower="loadMore">
+  <scroll-view class="list" style="height: 100%" scroll-y="true" bindscrolltoupper="refresh" bindscrolltolower="loadMore">
     <view class="item" wx:for="{{contentlist}}" wx:key="item">
-      <view class="right">{{item.title}}</view>
+      <text class="right">{{item.name}}</text>
     </view>
   </scroll-view>
   <view class="bottom" wx:if="{{hideBottom}}">

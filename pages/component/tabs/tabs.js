@@ -1,3 +1,4 @@
+var api = require('../../../utils/api')
 Component({
   options: {
     multipleSlots: true // 在组件定义时的选项中启用多slot支持
@@ -7,9 +8,10 @@ Component({
   },
   data: {
     text: 'tabs',
-    list: ['AAAAA', 'BBBBB'],
-    firstList: ["LXT", "LXT", "LXT", "LXT", "LXT", "LXT"],
-    secondList: ["GFF", "GFF", "GFF", "GFF", "GFF", "GFF"],
+    list: ['AAAAA', 'BBBBB', 'CCCCC'],
+    firstList: [],
+    secondList: [],
+    dataList: [],
     active: 0
   }, // 私有数据，可用于模板渲染
   methods: {
@@ -50,7 +52,19 @@ Component({
 
   // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
   attached: function () { }, // 此处attached的声明会被lifetimes字段中的声明覆盖
-  ready: function() { },
+  ready: function() {
+    console.log(api)
+    var that = this
+    api.getdata(function(res) {
+      that.setData({'dataList': res.data})
+    })
+    api.getfirst(function(res) {
+      that.setData({'firstList': res.data})
+    })
+    api.getsecond(function(res) {
+      that.setData({'secondList': res.data})
+    })
+  },
 
   pageLifetimes: {
     // 组件所在页面的生命周期函数

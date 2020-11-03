@@ -9,6 +9,7 @@ Page {
   height: 70rpx;
   line-height: 70rpx;
   padding-left: 20rpx;
+  display: block;
 }
 .loading {
   text-align: center;

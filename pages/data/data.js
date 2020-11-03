@@ -1,4 +1,5 @@
 var util = require('../../utils/util.js')
+var api = require('../../utils/api.js')
 // const app = getApp()
 Page({
   data: {
@@ -31,6 +32,7 @@ Page({
    onShow:function(){  
    },  
    loadMore:function(){
+     console.log('上拉加载更多.')
      var self = this;
     //  该方法绑定了页面滑动到底部的事件
     console.log('loadMore', self.data.currentPage, self.data.allPages)
@@ -77,6 +79,9 @@ Page({
    */
   onPullDownRefresh: function () {
     console.log('onPullDownRefresh')
+    wx.showToast({
+      title: 'onPullDownRefresh',
+    })
     setTimeout(() => {
       wx.stopPullDownRefresh()
     }, 2000)
@@ -87,15 +92,29 @@ Page({
    */
   onReachBottom: function () {
     console.log('onReachBottom')
+    const self = this
+    self.setData({
+      loadMoreData: '上拉加载更多...',
+      hideBottom: true
+    })
+    setTimeout(function () {
+      self.setData({
+        loadMoreData: '',
+        hideBottom: false
+      })
+    },2000)
+    // wx.showToast({
+    //   title: 'onReachBottom',
+    // })
   },
 
   loadData: function () {
     var that = this
     //网络访问，获取数据列表
-    util.loadData(function(data){
+    api.getPullData(function(data) {
       that.setData({
         contentlist: data.list,
-        allPages: data.allPage
+        allPages: data.total
       })
     })
   }

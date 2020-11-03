@@ -65,5 +65,5 @@ App({
       safeHeight: 311,
       bottomAreaHeight: 0
     }
-  }
+  },
 })

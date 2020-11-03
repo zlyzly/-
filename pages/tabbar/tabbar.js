@@ -17,6 +17,11 @@ Page({
 
   formSubmit(e) {
     console.log('form发生了submit事件，携带数据为：', e, e.detail.value)
+    wx.showToast({
+      title: 'form发生了submit事件',
+      icon: 'success',
+      duration: 1500
+    })
   },
 
   formReset(e) {
@@ -27,16 +32,16 @@ Page({
   },
   onLoad: function () {
     var that = this;
-//网络访问，获取轮播图的图片
+    //网络访问，获取轮播图的图片
     util.getRecommend(function(data){
       that.setData({
         slider: data
       })
-    }); 
+    })
   },
   //轮播图的切换事件
   swiperChange: function(e){
-//只要把切换后当前的index传给<swiper>组件的current属性即可
+  //只要把切换后当前的index传给<swiper>组件的current属性即可
     this.setData({
       swiperCurrent: e.detail.current
     })
