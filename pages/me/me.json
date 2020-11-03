@@ -1,6 +1,3 @@
 { 
-  "component": true,
-  "usingComponents": {
-    "tabs": "../component/tabs/tabs"
-  }
+  "usingComponents": {}
 }

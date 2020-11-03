@@ -1,15 +1,3 @@
 <view class="container">
   <text>{{ text }}</text>
-  <button class="btn" bindtap="hello">使用公共方法1</button>
-  <text class="br">-----引入页面模板-----</text>
-  <import src="../component/text/text.wxml" />
-  <template is="text" data="{{ ...datas }}"></template>
-  <view class="component">
-    <tabs>
-        <!-- 这部分内容将被放置在组件 <slot name="before"> 的位置上 -->
-      <view class="solt_text" slot="before">这里是插入到组件slot name="before"中的内容</view>
-      <!-- 这部分内容将被放置在组件 <slot name="after"> 的位置上 -->
-      <view class="solt_text" slot="after">这里是插入到组件slot name="after"中的内容</view>
-    </tabs>
-  </view>
 </view>

@@ -1,13 +1,12 @@
 {
   "pages": [
-    "pages/me/me",
     "pages/home/home",
-    "pages/index/index"
+    "pages/me/me"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "ONE",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -23,7 +22,7 @@
         "text": "组件"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/home/home",
         "iconPath": "image/安全极速.png",
         "selectedIconPath": "image/安全极速1.png",
         "text": "API"

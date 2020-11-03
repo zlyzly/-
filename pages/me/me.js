@@ -1,18 +1,6 @@
-var common = require('../../utils/commen.js')
 Page({
   data: {
     text: "This is page me.",
-    datas: {
-      texts: "This is page text.",
-      list: [
-        { num: 10 },
-        { num: 20 },
-        { num: 60 }
-      ],
-    }
-  },
-  hello: function () {
-    common.sayHello('zahra！')
   },
   onLoad: function (options) {
     // Do some initialize when page load.
