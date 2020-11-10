@@ -1,0 +1,32 @@
+<view class="container">
+  <view class="search_view">
+    <view class="input">
+      <input class="weui-input" placeholder="请输入商圈，地铁，小区" value='{{input}}' />
+    </view>
+    <text class="cancel" bindtap="cancelText">{{text}}</text>
+  </view>
+  <view class="search_history" wx:if="{{historyList.length}}">
+    <view class="title">
+      <h1 class="text">历史搜索</h1>
+      <icon class="icon-box-img" type="info" size="20" bindtap="handleDelete"></icon>
+    </view>
+    <view class="list">
+     <view wx:for="{{historyList}}" wx:key="item" class="list_item" data-text="{{item}}" bindtap="handleSearch">
+      <view class="text">{{item}}</view>
+      <view class="yuan">全部户型</view>
+     </view>
+    </view>
+  </view>
+  <view class="search_popular">
+    <view class="title">
+      <h1 class="text">热门搜索</h1>
+    </view>
+    <view class="tags">
+      <view wx:for="{{popularList}}" wx:key="item" class="tag" data-tag="{{item}}" bindtap="handleTags">{{item}}</view>
+    </view>
+  </view>
+  <!-- <button type="default" bindtap="actionSheetTap">弹出action sheet</button> -->
+  <!-- <view class="component">
+    <lists actionSheetHidden="actionSheetHidden" bind:cancel="handleCancel"/>
+  </view> -->
+</view>

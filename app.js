@@ -57,13 +57,6 @@ App({
   },
   //全局对象--可以在任何页面使用
   globalData: {
-    userInfo: null,
-    info: '你好！',
-    safeArea: { // 此处信息以iPhone8计算，其它需要按照动态计算得出
-      statusBarHeight: 20,
-      wechatOperationBarHeight: 44,
-      safeHeight: 311,
-      bottomAreaHeight: 0
-    }
+    historyText: ['横岗公路', '泗泾地铁站']
   },
 })

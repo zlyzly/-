@@ -1,12 +1,14 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/search/index",
+    "pages/component/list/index",
     "pages/me/me"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "ONE",
+    "navigationBarTitleText": "巴乐兔租房",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -19,19 +21,13 @@
         "pagePath": "pages/home/home",
         "iconPath": "image/公告.png",
         "selectedIconPath": "image/公告1.png",
-        "text": "组件"
-      },
-      {
-        "pagePath": "pages/home/home",
-        "iconPath": "image/安全极速.png",
-        "selectedIconPath": "image/安全极速1.png",
-        "text": "API"
+        "text": "首页"
       },
       {
         "pagePath": "pages/me/me",
         "iconPath": "image/会员.png",
         "selectedIconPath": "image/会员1.png",
-        "text": "自定义组件"
+        "text": "我的"
       }
     ]
   },

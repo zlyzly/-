@@ -1,16 +1,17 @@
 /**app.wxss**/
 .container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0;
+  height: 100vh;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+  /* justify-content: space-between; */
+  padding: 0 40rpx;
   margin: 0;
   box-sizing: border-box;
+  font-family: '微软雅黑';
 } 
 .br {
-  margin: 10px 0;
+  margin: 8px 0;
 }
 
 .btn {

@@ -1,0 +1,12 @@
+<view class="page">
+  <view class="page__bd">
+    <view class="section section_gap">
+      <action-sheet hidden="{{properties.actionSheetHidden}}" bindchange="actionSheetChange">
+          <block wx:for-items="{{actionSheetItems}}" wx:key="item">
+              <action-sheet-item class="item" bindtap="bind{{item}}">{{item}}</action-sheet-item>
+          </block>
+          <action-sheet-cancel class="cancel" bindtap="cancel">取消</action-sheet-cancel>
+        </action-sheet>
+    </view>
+  </view>
+</view>

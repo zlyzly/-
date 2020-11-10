@@ -1,4 +1,4 @@
 {
-  "usingComponents": {},
-  "disableScroll": false
+  "navigationBarTitleText": "租房",
+  "enablePullDownRefresh": true
 }

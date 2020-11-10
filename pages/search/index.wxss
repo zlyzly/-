@@ -1,0 +1,70 @@
+.container {
+  font-size: 24rpx;
+  color: #262626;
+}
+.search_view {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 45rpx;
+}
+.search_view .input {
+  width: 82%;
+}
+.search_view .weui-input {
+  width: 100%;
+  border: 1rpx solid #eee;
+  background: #eee;
+  padding: 5rpx 20rpx;
+  font-size: 24rpx;
+  border-top-left-radius: 5%;
+  border-bottom-left-radius: 5%;
+}
+.search_view .cancel {
+  color: red;
+  font-size: 30rpx;
+}
+
+.search_history .title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.search_history .title {
+  margin-bottom: 20rpx;
+}
+.search_history .title .text, .search_popular .title .text{
+  font-size: 36rpx;
+}
+.search_history .list {
+  padding-left: 15rpx;
+}
+.search_history .list .list_item {
+  padding: 25rpx 0;
+  border-bottom: 1px solid #eee;
+}
+.search_history .list .text {
+  margin-bottom: 20rpx;
+}
+.search_history .list .yuan {
+  color: rgb(216, 211, 211);
+}
+.search_popular .title {
+  margin-top: 45rpx;
+}
+.search_popular .tags {
+  margin-top: 45rpx;
+  padding: 0 15rpx;
+}
+.search_popular .tags .tag {
+  display: inline-block;
+  background: rgb(245, 238, 238);
+  font-size: 24rpx;
+  color: #5a5a5a;
+  padding: 15rpx 0;
+  width: 22%;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+  text-align: center;
+}

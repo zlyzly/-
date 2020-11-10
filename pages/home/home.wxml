@@ -1,3 +1,67 @@
 <view class="container">
-  <text>{{ text }}</text>
+  <scroll-view scroll-y lower-threshold="100" bindscrolltolower="scrollToLower" style="height: 100vh">
+    <view class="weui-cell">
+      <text class="loction">上海</text>
+      <input class="weui-input" bindtap="navigateTo" placeholder="你想住哪儿"/>
+    </view>
+    <view class="weui-cell">
+      <view class="icon-box" wx:for="{{titleArr}}" wx:key="item">
+        <icon class="icon-small" type="{{item.icon}}" size="16"></icon>
+        <text class="icon-box-desc">{{ item.title }}</text>
+      </view>
+    </view>
+    <view class="section__img">
+      <image class="image" src="{{src}}"></image>
+    </view>
+    <view class="section__icon">
+      <view class="icon-box" wx:for="{{list}}" wx:key="item" style="flex-direction:row;justify-content: space-between;">
+        <icon type="{{item.icon}}" size="60"></icon>
+        <view class="icon-box-text">{{ item.text }}</view>
+      </view>
+    </view>
+    <view class="section__img_box">
+      <view class="img_box" wx:for="{{list1}}" wx:key="item" style="flex-direction:row;justify-content: space-between;">
+        <image class="image" src="{{item.icon}}"></image>
+        <view class="des_box">
+          <text class="title">{{ item.title }}</text>
+          <text class="des">{{ item.des }}</text>
+        </view>
+      </view>
+    </view>
+    <view class="section__img">
+      <text class="title_b">特色推荐</text>
+      <view class="tui_box" wx:for="{{list2}}" wx:key="item" style="flex-direction:row;justify-content: space-between;">
+        <image class="image" src="{{item.icon}}"></image>
+        <view class="text">{{ item.text }}</view>
+      </view>
+    </view>
+    <view class="table">
+      <view class="flex-wrp" wx:for="{{tablelist}}" wx:key="item">
+        <view class="flex-item demo-text-1">
+          <image class="image" src="{{item.img}}"></image>
+          <text class="mini-btn" size="mini">租好点</text>
+          <view class="mark">房东提供 * {{ item.num }}</view>
+        </view>
+        <view class="flex-item demo-text-2">
+          <text class="title">{{item.title}}</text>
+          <text class="text view">按日退租 * 七日退款</text>
+          <view class="views">
+            <icon class="icon-small" type="success_circle" size="16"></icon>
+            <text class="address">{{item.address}}</text>
+          </view>
+          <view class="view">
+            <text class="tags" wx:for="{{item.tag}}" wx:for-item="tag" wx:key="tag">{{tag}}</text>
+          </view>
+          <view class="view">
+            <h1 class="price">{{item.price}}</h1>
+            <text class="unit">元</text></view>
+        </view>
+      </view>
+      <view style="text-align: center;margin: 10px;">
+        <view wx:if="{{loading}}">加载中...</view>
+        <view wx:if="{{noMore}}">没有更多了</view>
+        <view wx:if="{{loadingFailed}}">数据加载失败,请重试</view>
+      </view>
+    </view>
+  </scroll-view>
 </view>

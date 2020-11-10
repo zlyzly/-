@@ -37,6 +37,7 @@ function loadData(callback) {
   }
   callback(res)
 }
+
 module.exports = {
   formatTime,
   getRecommend,
