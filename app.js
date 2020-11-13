@@ -2,6 +2,26 @@
 App({
   //当小程序初始化完成时，会触发onLaunch（全局只触发一次）
   onLaunch: function () {
+    // 获取设备信息
+    wx.getSystemInfo({
+      success: (result) => {
+        console.log(result)
+        console.log(result.platform) // 客户端平台
+        if (result.system.indexOf("Android") != -1) {  // 是安卓机型
+          // console.log('安卓')
+        } else {  // ios机型 x以上
+          // console.log(result.windowHeight)
+          if (result.windowHeight >= 642) {
+            // console.log('ios x')
+          } else { // ios机型 x以下
+            // console.log('ios x下')
+          }
+        }
+      },
+      fail: (err) => {
+        console.log(err)
+      }
+    })
     // 展示本地存储能力
     // var logs = wx.getStorageSync('logs') || []
     // logs.unshift(Date.now())
@@ -57,6 +77,9 @@ App({
   },
   //全局对象--可以在任何页面使用
   globalData: {
-    historyText: ['横岗公路', '泗泾地铁站']
+    historyText: ['横岗公路', '泗泾地铁站'],
+    info: {
+      msg: ''
+    }
   },
 })

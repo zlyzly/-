@@ -1,3 +1,8 @@
 <view class="container">
   <text>{{ text }}</text>
+  <view class="page-body">
+    <button bindtap='chooseWxImage'>上传图片</button>
+    <image src="{{tempFilePaths}}" mode="aspecFill" style="width: 100%; height: {{imgheight}}"/>  
+    <text>图片的大小：{{imgwidth}}px*{{imgheight}}px</text>
+  </view>
 </view>

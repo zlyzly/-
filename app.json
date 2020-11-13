@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/me/me",
     "pages/home/home",
     "pages/search/index",
-    "pages/component/list/index",
-    "pages/me/me"
+    "pages/component/list/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
