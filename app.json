@@ -2,7 +2,8 @@
   "pages": [
     "pages/me/me",
     "pages/home/home",
-    "pages/index/index"
+    "pages/index/index",
+    "pages/animate/animate"
   ],
   "window": {
     "backgroundTextStyle": "light",

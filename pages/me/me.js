@@ -19,6 +19,14 @@ Page({
   },
   onReady: function () {
     // Do something when page ready.
+    wx.getSystemInfo({
+      success: (result) => {
+        console.log('2', result)
+      },
+      fail: (err) => {
+        console.log(err)
+      }
+    })
   },
   onShow: function () {
     // Do something when page show.

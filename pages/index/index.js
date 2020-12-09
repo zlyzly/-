@@ -95,7 +95,7 @@ Page({
 
     this.animation = animation
 
-    animation.scale(2,2).rotate(45).step()
+    animation.scale(2,2).rotate(360).step()
 
     this.setData({
       animationData:animation.export()
@@ -160,5 +160,8 @@ Page({
     this.setData({
       animationData: this.animation.export()
     })
+  },
+  showAnimation: function () {
+    wx.navigateTo({ url: '../animate/animate' })
   }
 })

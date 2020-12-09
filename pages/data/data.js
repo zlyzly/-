@@ -1,25 +1,21 @@
 var util = require('../../utils/util.js')
 var api = require('../../utils/api.js')
-// const app = getApp()
+const app = getApp()
 Page({
   data: {
-    hideHeader: false,
-    hideBottom: false,
-    refreshTime: '', // 刷新的时间 
-    contentlist: [], // 列表显示的数据源
-    allPages: '',    // 总页数
-    currentPage: 1,  // 当前页数  默认是1
-    loadMoreData: '加载更多……',
-    scrollHeight: 0
+    refreshFlag: false,
+    loadMoreFlag: false,
+    systemStatusBarH: app.globalData.safeArea.statusBarHeight,
+    wechatOperationBarH: app.globalData.safeArea.wechatOperationBarHeight,
+    containerH: app.globalData.safeArea.safeHeight,
+    src: '../../image/loading.png',
+    animationData: {}
   },
   onLoad:function(){
     const that = this
     wx.getSystemInfo({  
       success:function(res){  
         console.info(res.windowHeight)
-        that.setData({  
-          scrollHeight:res.windowHeight  
-        }) 
       }  
     })
     //  在页面展示之后先获取一次数据
@@ -30,58 +26,13 @@ Page({
     this.loadData()
    },  
    onShow:function(){  
-   },  
-   loadMore:function(){
-     console.log('上拉加载更多.')
-     var self = this;
-    //  该方法绑定了页面滑动到底部的事件
-    console.log('loadMore', self.data.currentPage, self.data.allPages)
-    // if (self.data.currentPage == self.data.allPages){
-    //   self.setData({
-    //     loadMoreData: '已经到顶',
-    //     hideBottom: false
-    //   })
-    //   return;
-    // } else {
-    self.setData({
-      loadMoreData: '上拉加载更多...',
-      hideBottom: true
-      // currentPage: self.data.currentPage++
-    })
-    // }
-    setTimeout(function(){
-      console.log('上拉加载更多');
-      self.setData({
-        hideBottom: false  
-      })
-      self.loadData();  
-    },2000);
-   },
-   refresh() {
-    console.log('下拉刷新');
-    var self = this;
-    self.setData({
-      currentPage: 1,
-      hideHeader: true
-    })
-    setTimeout(function(){
-      var date = new Date();
-      self.setData({
-        currentPage: 1,
-        refreshTime: date.toLocaleTimeString(),
-        hideHeader: false
-      })
-      self.loadData();
-    },2000);
-  },
- /**
+     console.log(this.data.systemStatusBarH, this.data.wechatOperationBarH, this.data.containerH)
+   }, 
+   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
     console.log('onPullDownRefresh')
-    wx.showToast({
-      title: 'onPullDownRefresh',
-    })
     setTimeout(() => {
       wx.stopPullDownRefresh()
     }, 2000)
@@ -92,22 +43,51 @@ Page({
    */
   onReachBottom: function () {
     console.log('onReachBottom')
-    const self = this
-    self.setData({
-      loadMoreData: '上拉加载更多...',
-      hideBottom: true
-    })
-    setTimeout(function () {
-      self.setData({
-        loadMoreData: '',
-        hideBottom: false
-      })
-    },2000)
-    // wx.showToast({
-    //   title: 'onReachBottom',
-    // })
   },
 
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  },
+  loadMore() {
+    console.log('loadMore')
+    this.setData({
+      loadMoreFlag: true
+    })
+    // 1创建一个动画实例 animation
+    var animation = wx.createAnimation({
+      duration: 1000,
+      timingFunction: 'ease'
+    })
+  
+    // 2调用实例的方法来描述动画。
+    this.animation = animation
+    animation.rotate(180).step()
+    animation.rotate(360).step()
+    // 3最后通过动画实例的 export 方法导出动画数据传递给组件的 animation 属性。
+    this.setData({
+      animationData:animation.export()
+    })
+    setTimeout(() => {
+      this.setData({
+        loadMoreFlag: false
+      })
+    }, 2000)
+  },
+  refresh() {
+    this.setData({
+      refreshFlag: true
+    })
+    console.log('refresh')
+    setTimeout(() => {
+      console.log('close refresh')
+      this.setData({
+        refreshFlag: false
+      })
+    }, 2000)
+  },
   loadData: function () {
     var that = this
     //网络访问，获取数据列表

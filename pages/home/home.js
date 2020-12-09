@@ -26,7 +26,6 @@ Page({
     name: '此时此刻',
     author: '许巍',
     src: 'http://ucloud.onemicroworld.com/DD6DC0B8-5504-0857-1F74-0C53D289E00E?UCloudPublicKey=qgchM9CFzaKL9XWizIjY4EXmtmtDqPoFCr69qE5P&Signature=ssd4FjnBu23N53CwmD06sMJinFY%3D',
-    src: '',
     danmuList:
     [{
       text: '第 1s 出现的弹幕',
@@ -47,7 +46,7 @@ Page({
   },
   // 区别
   // wx.navigateTo()是保留当前页面，跳转到某个页面，跳转页面后可以返回上一页。
-  // wx.redirectTo()是关闭当前页面，跳转到某个页面，跳转页面后不能返回上一页。
+  // wx.redirectTo() 关闭当前页面及页面栈里的当前页删掉后，跳转到新页面在push到页面栈，如果页面栈中有其他页面你可以返回上一页 没有就不可以返回（顶掉当前页面的状态）。
   navget: function () {
     wx.navigateTo({
       url: '../tabbar/tabbar'

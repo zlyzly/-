@@ -11,5 +11,6 @@ Page({
         return util.formatTime(new Date(log))
       })
     })
+    console.log(getCurrentPages())
   }
 })

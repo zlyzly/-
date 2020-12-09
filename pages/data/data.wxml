@@ -1,16 +1,23 @@
 
-<view class="container">  
-  <view class="header" wx:if="{{hideHeader}}">
-    <view>下拉刷新中……</view>
-    <view>{{refreshTime}}</view>
-  </view>
-  <scroll-view class="list" style="height: 100%" scroll-y="true" bindscrolltoupper="refresh" bindscrolltolower="loadMore">
+<view class="content">  
+  <scroll-view
+    style="height: {{containerH}}px;"
+    refresher-triggered="{{refreshFlag}}"
+    scroll-y="true"
+    refresher-enabled="true"
+    refresher-default-style='none'
+    refresher-threshold='0'
+    bindscrolltolower="loadMore"
+    bindrefresherrefresh="refresh"
+  >
+    <view wx:if="{{refreshFlag}}" class="img">
+      <image src="{{src}}"></image>
+    </view>
     <view class="item" wx:for="{{contentlist}}" wx:key="item">
       <text class="right">{{item.name}}</text>
     </view>
+    <view wx:if="{{loadMoreFlag}}" class="img1">
+      <image animation="{{animationData}}" src="{{src}}"></image>
+    </view>
   </scroll-view>
-  <view class="bottom" wx:if="{{hideBottom}}">
-    <view>{{loadMoreData}}</view>
-    <view>{{refreshTime}}</view>
-  </view>
 </view>  

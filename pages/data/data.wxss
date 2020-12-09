@@ -1,9 +1,9 @@
-
-Page {
-  background: #fff;
+page {
+  height: 100%;
 }
 .container {
-  height: 100%;
+  background: lightblue;
+  display: block;
 }
 .item {
   height: 70rpx;
@@ -15,3 +15,52 @@ Page {
   text-align: center;
   margin: 40rpx 0;
 }
+.img, .img1 {
+  text-align: center;
+}
+.img1 image {
+  width: 50rpx;
+  height: 50rpx;
+  margin: 20rpx;
+}
+.img image {
+  width: 50rpx;
+  height: 50rpx;
+  margin: 20rpx;
+  /* transition: All 0.4s ease-in-out;
+  -webkit-transition: All 0.4s ease-in-out;
+  -moz-transition: All 0.4s ease-in-out;
+  -o-transition: All 0.4s ease-in-out; */
+  animation: rotates 1s ease 0.1s infinite reverse both running;
+}
+@keyframes rotates {
+  from {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+  }
+  to {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+  }
+}
+
+/* .img image:hover {
+  transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+} */

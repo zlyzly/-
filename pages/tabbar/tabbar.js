@@ -39,6 +39,9 @@ Page({
       })
     })
   },
+  onShow: function () {
+    console.log(getCurrentPages())
+  },
   //轮播图的切换事件
   swiperChange: function(e){
   //只要把切换后当前的index传给<swiper>组件的current属性即可
@@ -75,5 +78,10 @@ Page({
         duration: 1500
       })
     }
+  },
+  redirectTo: function () {
+    wx.redirectTo({
+      url: '../logs/logs'
+    })
   }
 })
