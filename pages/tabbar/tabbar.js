@@ -3,11 +3,14 @@ var app = getApp()
 Page({
   data: {
     navbar: ['首页', '轮播图', '登录'],
-    currentTab: 2,
+    currentTab: 1,
     slider: [],
+    silderUrl: [],
     swiperCurrent: 0,
     phone: '',
-    password:''
+    password:'',
+    type: '',
+    imglist: ['']
   },
   navbarTap: function(e){
     this.setData({
@@ -30,13 +33,22 @@ Page({
       chosen: ''
     })
   },
-  onLoad: function () {
+  onLoad: function (options) {
+    // 可以拿到页面带过来的参数
+    console.log(options)
+    this.setData({
+      type: options.type
+    })
     var that = this;
     //网络访问，获取轮播图的图片
     util.getRecommend(function(data){
       that.setData({
         slider: data
       })
+      that.setData({
+        silderUrl: that.data.slider.map(e => e.url)
+      })
+      console.log(that.data.silderUrl)
     })
   },
   onShow: function () {
@@ -82,6 +94,15 @@ Page({
   redirectTo: function () {
     wx.redirectTo({
       url: '../logs/logs'
+    })
+  },
+  previewImage: function (e) {
+    console.log(e)
+    console.log(this.data.slider)
+    var current = e.target.dataset.src
+    wx.previewImage({
+      current: current, // 当前显示图片的http链接  
+      urls: this.data.silderUrl // 需要预览的图片http链接列表  
     })
   }
 })

@@ -49,7 +49,7 @@ Page({
   // wx.redirectTo() 关闭当前页面及页面栈里的当前页删掉后，跳转到新页面在push到页面栈，如果页面栈中有其他页面你可以返回上一页 没有就不可以返回（顶掉当前页面的状态）。
   navget: function () {
     wx.navigateTo({
-      url: '../tabbar/tabbar'
+      url: '../tabbar/tabbar?type=1'
     })
   },
   redirectTo: function () {

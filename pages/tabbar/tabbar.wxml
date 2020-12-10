@@ -54,12 +54,13 @@
  
 <!--轮播图-->
 <view hidden="{{currentTab!==1}}">
-  <view class="recommend" >
+  <!-- <view class="recommend">
     <view class="swiper-container">
+      <text class="center">点击图片可预览</text>
       <swiper autoplay="auto" interval="5000" duration="500" current="{{swiperCurrent}}" bindchange="swiperChange" class="swiper">
-        <block wx:for="{{slider}}" wx:key="unique">
-          <swiper-item data-id="{{item.id}}" data-url="{{item.url}}">
-            <image src="{{item.url}}" class="img"></image>
+        <block wx:for="{{silderUrl}}" wx:key="unique">
+          <swiper-item data-id="{{item}}" data-url="{{item}}">
+            <image src="{{item}}" class="img" bindtap="previewImage"></image>
           </swiper-item>
         </block>
       </swiper>
@@ -67,6 +68,30 @@
         <block wx:for="{{slider}}" wx:key="unique">
           <view class="dot{{index == swiperCurrent ? ' active' : ''}}" bindtap="chuangEvent" id="{{index}}">{{index+1}}</view>
         </block>
+      </view>
+    </view>
+  </view> -->
+  <view class="productdetails">
+    <view class="container">
+      <text class="center">点击图片可预览</text>
+      <view class="page-body">
+        <view class="page-section page-section-spacing swiper">
+          <swiper class="swiper-item-dom" current="{{swiperCurrent}}" bindchange="swiperChange" 
+          autoplay="auto" interval="5000" duration="500">
+            <block wx:for="{{silderUrl}}" wx:key="*this">
+              <swiper-item>
+                <view class="swiper-item">
+                  <image class="list-product-img" src="{{item}}" bindtap="previewImage"></image>
+                </view>
+              </swiper-item>
+            </block>
+          </swiper>
+          <view class="dots">
+            <block wx:for="{{slider}}" wx:key="unique">
+              <view class="dot{{index == swiperCurrent ? ' active' : ''}}" bindtap="chuangEvent" id="{{index}}">{{index+1}}</view>
+            </block>
+          </view>
+        </view>
       </view>
     </view>
   </view>
@@ -79,6 +104,7 @@
   </view>
   <view class="login-from">
     <!--账号-->
+    <text>上个页面传的参数：{{ type }}</text>
     <view class="inputView">
       <image class="nameImage" src="../../image/name.png"></image>
       <label class="loginLab">账号</label>
