@@ -22,7 +22,9 @@
     <button class="btn" bindtap="openModal">打开模态弹窗</button>
     <button class="btn" bindtap="showLoading">loading</button>
     <button class="btn" bindtap="showAnimation">animation</button>
-    <view animation="{{animationData}}" style="background:pink;height:100rpx;width:100rpx"></view>
+    <button class="btn" bindtap="request">请求</button>
+    <!-- <view animation="{{animationData}}" style="background:pink;height:100rpx;width:100rpx"></view> -->
+
   </view>
   <view>
     <view wx:for="{{list}}" wx:key="item">

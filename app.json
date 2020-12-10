@@ -2,7 +2,7 @@
   "pages": [
     "pages/me/me",
     "pages/home/home",
-    "pages/index/index",
+    "pages/api/api",
     "pages/animate/animate"
   ],
   "window": {
@@ -24,7 +24,7 @@
         "text": "组件"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/api/api",
         "iconPath": "image/安全极速.png",
         "selectedIconPath": "image/安全极速1.png",
         "text": "API"

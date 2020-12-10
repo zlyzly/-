@@ -1,5 +1,6 @@
 var util = require('../../utils/util.js')
 var api = require('../../utils/api.js')
+//获取应用实例
 const app = getApp()
 Page({
   data: {

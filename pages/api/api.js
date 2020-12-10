@@ -163,5 +163,23 @@ Page({
   },
   showAnimation: function () {
     wx.navigateTo({ url: '../animate/animate' })
+  },
+  request: function () {
+    wx.request({
+      url: 'https://tcb-api.tencentcloudapi.com',
+      data: {
+        x: '' ,
+        y: ''
+      },
+      header: {
+          'Content-Type': 'application/json'
+      },
+      success: function(res) {
+        console.log(res)
+      },
+      fail:function(res){
+        console.log("---fail---")
+      }
+    })
   }
 })
