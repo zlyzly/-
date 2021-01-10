@@ -2,11 +2,6 @@ var common = require('../../utils/commen.js')
 Page({
   data: {
     text: "This is page me.",
-    list: [
-      { num: 1 },
-      { num: 2 },
-      { num: 6 }
-    ],
     datas: {
       texts: "This is page text.",
       list: [
@@ -24,6 +19,14 @@ Page({
   },
   onReady: function () {
     // Do something when page ready.
+    wx.getSystemInfo({
+      success: (result) => {
+        console.log('2', result)
+      },
+      fail: (err) => {
+        console.log(err)
+      }
+    })
   },
   onShow: function () {
     // Do something when page show.

@@ -1,15 +1,23 @@
 
-<view style="{{isShowToast?'position:fixed;':''}}">
-  <view class="btn" bindtap="clickBtn">button</view>
-</view>
- 
-<!--mask-->
-<view class="toast_mask" wx:if="{{isShowToast}}"></view>
-<!--以下为toast显示的内容-->
-<view class="toast_content_box" wx:if="{{isShowToast}}">
-  <view class="toast_content">
-    <view class="toast_content_text">
-      {{toastText}}
+<view class="content">  
+  <scroll-view
+    style="height: {{containerH}}px;"
+    refresher-triggered="{{refreshFlag}}"
+    scroll-y="true"
+    refresher-enabled="true"
+    refresher-default-style='none'
+    refresher-threshold='0'
+    bindscrolltolower="loadMore"
+    bindrefresherrefresh="refresh"
+  >
+    <view wx:if="{{refreshFlag}}" class="img">
+      <image src="{{src}}"></image>
     </view>
-  </view>
-</view>
+    <view class="item" wx:for="{{contentlist}}" wx:key="item">
+      <text class="right">{{item.name}}</text>
+    </view>
+    <view wx:if="{{loadMoreFlag}}" class="img1">
+      <image animation="{{animationData}}" src="{{src}}"></image>
+    </view>
+  </scroll-view>
+</view>  

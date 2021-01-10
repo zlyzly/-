@@ -1,24 +1,29 @@
 /* pages/scroll/scroll.wxss */
-page{
+page {
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 100%;
   box-sizing: border-box;
 }
-.navbar{
+
+.navbar {
   flex: none;
   display: flex;
 }
-.navbar .item{
+
+.navbar .item {
   position: relative;
   flex: auto;
   text-align: center;
   line-height: 80rpx;
 }
-.navbar .item.active{
+
+.navbar .item.active {
   color: #FFCC00;
 }
-.navbar .item.active:after{
+
+.navbar .item.active:after {
   content: "";
   display: block;
   position: absolute;
@@ -32,46 +37,185 @@ page{
   padding: 40rpx;
   box-sizing: border-box;
 }
+
 .page-section {
   margin-bottom: 20rpx;
 }
+
 .btn-area {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .btn-area button:last-child {
   margin-left: 50rpx;
 }
-.swiper-container{
+
+/* .swiper-container {
   position: relative;
 }
-.swiper-container .swiper{
-  height: 300rpx;
-}
-.swiper-container .swiper .img{
+
+.swiper-container .swiper {
   width: 100%;
-  height: 100%;
 }
-.swiper-container .dots{
+
+.swiper .swiper .img {
+  width: 100%;
+} */
+
+.swiper .dots {
   position: absolute;
   right: 40rpx;
   bottom: 20rpx;
   display: flex;
   justify-content: center;
 }
-.swiper-container .dots .dot{
+
+.swiper .dots .dot {
   margin: 0 10rpx;
   width: 28rpx;
   height: 28rpx;
   background: #fff;
   border-radius: 50%;
   transition: all .6s;
-  font: 300 18rpx/28rpx "microsoft yahei";
+  font: 600 18rpx/28rpx "microsoft yahei";
   text-align: center;
 }
-.swiper-container .dots .dot.active{
+
+.swiper .dots .dot.active {
   background: #f80;
-  color:#fff;
+  color: #fff;
+}
+
+.container {
+  /* height: 100%; */
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f2f2f2
+}
+
+/*登录图片*/
+.login-icon {
+  flex: none;
+}
+
+.login-img {
+  width: 750rpx;
+}
+
+/*表单内容*/
+.login-from {
+  margin-top: 20px;
+  flex: auto;
+  height: 100%;
+  width: 100%;
+}
+
+.inputView {
+  background-color: #fff;
+  line-height: 42px;
+}
+
+/*输入框*/
+.nameImage,
+.keyImage {
+  margin-left: 20px;
+  width: 14px;
+  height: 14px
+}
+
+.loginLab {
+  margin: 10px;
+  color: #545454;
+  font-size: 14px
+}
+
+.inputText {
+  flex: block;
+  float: right;
+  text-align: right;
+  margin-right: 22px;
+  margin-top: 11px;
+  color: #cccccc;
+  font-size: 14px
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: #cccccc;
+}
+
+/*按钮*/
+.loginBtnView {
+  width: 100%;
+  height: auto;
+  background-color: #f2f2f2;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+.loginBtn {
+  width: 80%;
+  margin-top: 35px;
+}
+
+.center {
+  display: block;
+  text-align: center;
+  font-size: 30rpx;
+  margin: 20rpx;
+}
+
+.productdetails {
+  width: 100%;
+}
+
+.page-body {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+}
+
+.page-section {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.page-swiper-item {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.swiper-item-dom {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-item {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.list-product-img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
 }

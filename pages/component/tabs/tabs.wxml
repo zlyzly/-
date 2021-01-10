@@ -1,0 +1,43 @@
+<view class="wrapper">
+  <slot name="before"></slot>
+  <text>这里是{{text}}组件的内部细节</text>
+  <view class='container'>
+    <!--Tab布局-->
+    <view class='title'>
+      <view class='titleSel' wx:for="{{list}}" wx:key="item" data-idx="{{index}}" bindtap="changeTabs">
+        <text>{{item}}</text>
+        <hr class="{{active === index ? 'headerLineSel' : 'headerLineUnsel'}}" />
+      </view>
+    </view>
+
+    <!--内容布局-->
+    <swiper class='swiper' bindchange='pagechange' current='{{active}}'>
+      <swiper-item class='swiper'>
+        <view wx:for="{{firstList}}" wx:key="item" class='recordItem'>
+          <view class='name'>{{item.title}}</view>
+        </view>
+      </swiper-item>
+      <swiper-item class='swiper'>
+        <view wx:for="{{secondList}}" wx:key="item" class='recordItem'>
+          <view class='name'>姓名：{{item.name}} 年龄：{{item.age}}</view>
+        </view>
+      </swiper-item>
+      <swiper-item class='swiper'>
+        <view wx:for="{{dataList}}" wx:key="item" class='recordItem'>
+          <view class="flex_box">
+            <view class="img">
+              <image class="imgs" src="{{item.img}}"></image>
+            </view>
+            <view class="text">
+              <text class="titles">{{item.title}}</text>
+              <text class="des">{{item.description}}</text>
+              <text class="des">{{item.date}}</text>
+              <text class="num">点赞:{{item.stock_num}}</text>
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- <slot name="after"></slot> -->
+</view>

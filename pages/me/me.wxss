@@ -1,1 +1,14 @@
 /* pages/me/me.wxss */
+page {
+  width: 100%;
+}
+.component {
+  width: 100%;
+  border: 1px solid;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+.solt_text {
+  font-size: 40rpx;
+  color: #1296db;
+}

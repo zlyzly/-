@@ -1,0 +1,5 @@
+<view class="container">
+  <view>
+    <view animation="{{animationData}}" style="background:pink;height:100rpx;width:100rpx"></view>
+  </view>
+</view>

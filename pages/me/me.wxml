@@ -4,10 +4,12 @@
   <text class="br">-----引入页面模板-----</text>
   <import src="../component/text/text.wxml" />
   <template is="text" data="{{ ...datas }}"></template>
-  <text class="br">-----条件判断-----</text>
-  <view wx:for="{{list}}" wx:key="item">
-    <text wx:if="{{ item.num === 1}}">num === 1: {{ item.num }}</text>
-    <text wx:elif="{{ item.num === 2}}">num === 2: {{ item.num }}</text>
-    <text wx:if="{{ item.num > 2}}">num > 2: {{ item.num }}</text>
+  <view class="component">
+    <tabs>
+        <!-- 这部分内容将被放置在组件 <slot name="before"> 的位置上 -->
+      <view class="solt_text" slot="before">这里是插入到组件slot name="before"中的内容</view>
+      <!-- 这部分内容将被放置在组件 <slot name="after"> 的位置上 -->
+      <view class="solt_text" slot="after">这里是插入到组件slot name="after"中的内容</view>
+    </tabs>
   </view>
 </view>
