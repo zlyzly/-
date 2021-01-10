@@ -1,16 +1,53 @@
 {
   "pages":[
-    "pages/tabbar/tabbar",
+    "pages/data/data",
+    "pages/tabs/tabs",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/home/home",
+    "pages/tabbar/tabbar",
+    "pages/me/me",
+    "pages/logs/logs",
+    "pages/component/text/text"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black",
-    "enablePullDownRefresh": true
+    "navigationBarTextStyle": "black"
   },
+  "tabBar": {
+    "color": "#000",
+    "selectedColor": "#1296db",
+    "backgroundColor": "gray",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "image/公告.png",
+        "selectedIconPath": "image/公告1.png",
+        "text": "主页"
+      },
+      {
+        "pagePath": "pages/data/data",
+        "iconPath": "image/安全极速.png",
+        "selectedIconPath": "image/安全极速1.png",
+        "text": "数据"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "iconPath": "image/会员.png",
+        "selectedIconPath": "image/会员1.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "component": true,
+  "usingComponents": {},
   "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  }
 }

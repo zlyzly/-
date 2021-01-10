@@ -1,0 +1,6 @@
+<view class="container">
+  <view>{{ text }}</view>
+</view>
+<!--页面跳转到当前页设置tabs
+
+-->
