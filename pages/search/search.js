@@ -1,4 +1,4 @@
-// pages/search/index.js
+// pages/search/search.js
 const app = getApp()
 Page({
   data: {

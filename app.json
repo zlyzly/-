@@ -2,7 +2,7 @@
   "pages": [
     "pages/me/me",
     "pages/home/home",
-    "pages/search/index",
+    "pages/search/search",
     "pages/component/list/index"
   ],
   "window": {

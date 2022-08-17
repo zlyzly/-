@@ -35,7 +35,7 @@ Page({
   },
   navigateTo() {
     wx.navigateTo({
-      url: '/pages/search/index',
+      url: '/pages/search/search',
     })
   },
   onLoad: function (options) {
